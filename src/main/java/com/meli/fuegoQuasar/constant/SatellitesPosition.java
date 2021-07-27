@@ -1,5 +1,8 @@
 package com.meli.fuegoQuasar.constant;
 
+/**
+ * Posición de los satélites actualmente en servicio
+ */
 public enum SatellitesPosition {
 
     KENOBI(-500,-200),

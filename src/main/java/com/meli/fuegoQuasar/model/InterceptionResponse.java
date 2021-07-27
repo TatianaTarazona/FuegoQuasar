@@ -1,5 +1,10 @@
 package com.meli.fuegoQuasar.model;
 
+/**
+ * Response que contiene los datos del emisor
+ * position: Posición de la nave (fuente, emisor)
+ * message: mensaje de auxilio interceptado
+ */
 public class InterceptionResponse {
 
     private Position position;

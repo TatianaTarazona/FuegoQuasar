@@ -1,12 +1,20 @@
 package com.meli.fuegoQuasar.model;
 
-import java.util.List;
+import io.swagger.annotations.ApiModelProperty;
 
-
+/**
+ * Reporte de cada satélite
+ * name: nombre del satélite
+ * distance: distancia del satelite al emisor
+ * message: mensaje interceptado por el satélite
+ */
 public class SatelliteReport {
 
+    @ApiModelProperty(position = 0)
     private String name;
+    @ApiModelProperty(position = 1)
     private float distance;
+    @ApiModelProperty(position = 2)
     private String[] message;
 
     public String getName() {

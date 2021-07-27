@@ -1,8 +1,15 @@
 package com.meli.fuegoQuasar.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
+/**
+ * Request del reporte de los datos interceptados de cada satélite
+ */
 public class InterceptionSplitRequest {
 
+    @ApiModelProperty(position = 0)
     float distance;
+    @ApiModelProperty(position = 1)
     private String[] message;
 
 

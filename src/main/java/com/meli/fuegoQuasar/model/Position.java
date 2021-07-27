@@ -1,5 +1,8 @@
 package com.meli.fuegoQuasar.model;
 
+/**
+ * Coordenadas de los elementos en la galaxia
+ */
 public class Position {
 
     private double x;

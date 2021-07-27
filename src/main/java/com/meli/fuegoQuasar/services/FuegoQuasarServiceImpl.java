@@ -39,27 +39,41 @@ public class FuegoQuasarServiceImpl implements FuegoQuasarService {
         satellitesName = Stream.of(SatellitesPosition.values()).map(Enum::name).collect(Collectors.toList());
     }
 
+    /**
+     * Procesa los reportes de los satélites y calcula la localización del emisor y el mensaje interceptado
+     * @param satellites Lista de los satéllites y sus respectivos reportes
+     * @return Localización del emisor y mensaje interceptado
+     * @throws LocationException
+     * @throws MessageException
+     */
     @Override
     public InterceptionResponse topSecretService(List<SatelliteReport> satellites) throws LocationException, MessageException {
 
-
-        double [] points = locationService.getLocation(satellites);
-
+        double[] points = locationService.getLocation(satellites);
         Position position = new Position(points);
+        List<String[]> messages = new ArrayList<String[]>();
 
-        List<String[]> messages = new ArrayList<String []>();
-        for(SatelliteReport s : satellites){
+        satellites = satellites.stream().filter(s -> s.getMessage().length > 0 ).collect(Collectors.toList()) ;
+
+        for (SatelliteReport s : satellites) {
             messages.add(s.getMessage());
         }
 
+
+
         String message = messageService.getMessage(messages);
 
-        return new InterceptionResponse(position , message );
+        return new InterceptionResponse(position, message);
 
     }
 
+    /**
+     * Recibe los reportes de cada uno de los satélites y los almacena, si ya existe reporte para un satélite lo
+     * sobreescribe con el reporte más reciente
+     * @param satellite Reporte de cada satéllite
+     */
     @Override
-    public void topSecretSplitService(SatelliteReport satellite){
+    public void topSecretSplitService(SatelliteReport satellite) {
 
         if (satellitesName.contains(satellite.getName().toUpperCase())) {
             satellites.removeIf(s -> s.getName().equals(satellite.getName().toUpperCase()));
@@ -68,19 +82,25 @@ public class FuegoQuasarServiceImpl implements FuegoQuasarService {
         }
     }
 
+    /**
+     * Procesa los reportes almacenados de cada uno de los satélites y calcula la localización del emisor y el mensaje interceptado
+     * @return Localización del emisor y mensaje interceptado
+     * @throws LocationException
+     * @throws MessageException
+     */
     @Override
     public InterceptionResponse topSecretSplitService() throws LocationException, MessageException {
 
-        List<String[]> messages = new ArrayList<String []>();
-        double [] points = locationService.getLocation(satellites);
+        List<String[]> messages = new ArrayList<String[]>();
+        double[] points = locationService.getLocation(satellites);
         Position position = new Position(points);
 
-        for(SatelliteReport s : satellites){
+        for (SatelliteReport s : satellites) {
             messages.add(s.getMessage());
         }
 
         String message = messageService.getMessage(messages);
 
-        return new InterceptionResponse(position , message );
+        return new InterceptionResponse(position, message);
     }
 }

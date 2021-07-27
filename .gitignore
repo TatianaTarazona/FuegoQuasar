@@ -34,6 +34,7 @@ build/
 
 ### MAVEN ###
 *.mvn
+mvnw.*
 
 ###GIT###
 .git
