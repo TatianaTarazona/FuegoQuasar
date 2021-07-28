@@ -58,6 +58,10 @@ Lista de paquetes en ``com.meli.fuegoQuasar``
  - :file_folder:**model** Clases que representan el negocio
  - :file_folder:**services** Clases con la logica para obtener la localización y el mensaje
 
+## Documentación Swagger
+
+[fuegoQuasar](http://localhost:8080/swagger-ui.html)
+
 
 ## Herramientas utilizadas 🛠️
 
@@ -66,4 +70,5 @@ Lista de paquetes en ``com.meli.fuegoQuasar``
 * Maven - Herramienta para la gestión y construcción de proyectos Java
 * Amazon - Servicios de computación en la nube
 * IntelliJ - IDE
+* Swagger - Documentación de servicios Web
 
