@@ -8,14 +8,14 @@ El manifiesto de la nave es ultra clasificado, pero se rumorea que transporta ra
 **Desafío**  
 Como jefe de comunicaciones rebelde, tu misión es crear un programa en Golang que retorne la fuente y contenido del mensaje de auxilio. Para esto, cuentas con tres satélites que te permitirán triangular la posición, ¡pero cuidado! el mensaje puede no llegar completo a cada satélite debido al campo de asteroides frente a la nave.  
 **Posición de los satélites actualmente en servicio**  
-* Kenobi: [-500, -200]  
-* Skywalker: [100, -100]  
-* Sato: [500, 100]  
+Kenobi: [-500, -200]  
+Skywalker: [100, -100]  
+Sato: [500, 100]  
 
 
 ## Requerimientos 📋  
 * JDK 11  
-* Maven 3.6.3
+* Maven
 
 ## Pasos para la ejecución :computer:
 
