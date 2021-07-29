@@ -1,5 +1,7 @@
 package com.meli.fuegoQuasar.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Response que contiene los datos del emisor
  * position: Posición de la nave (fuente, emisor)
@@ -7,7 +9,9 @@ package com.meli.fuegoQuasar.model;
  */
 public class InterceptionResponse {
 
+    @ApiModelProperty(position = 0)
     private Position position;
+    @ApiModelProperty(position = 1)
     private String message;
 
     public InterceptionResponse() {
