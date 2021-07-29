@@ -16,15 +16,15 @@ Fuego de Quasar es un API que soluciona el siguiente problema:
   
 ## Planteamiento de la solución :memo:  
   
-	### 1. Obtener la posición del emisor por Trilateración 🚀  
-	  
-	Se implementó la librería _Trilateration_ que resuelve un problema de trilateración espacial n-D utilizando un optimizador de mínimos cuadrados no lineal, la documentación de la librería es:   
-	  
-	> https://github.com/lemmingapex/Trilateration  
-	  
-	### 2. Obtener el contenido del mensaje de auxilio 📄  
-  
-	Se recorren los mensajes interceptados, eliminando los que vengan vacíos o nulos, luego se realiza una iteración por cada mensaje para armar una lista con los palabras de los mensajes interceptados por cada satélite.   
+### 1. Obtener la posición del emisor por Trilateración 🚀  
+
+Se implementó la librería _Trilateration_ que resuelve un problema de trilateración espacial n-D utilizando un optimizador de mínimos cuadrados no lineal, la documentación de la librería es:   
+
+> https://github.com/lemmingapex/Trilateration  
+
+### 2. Obtener el contenido del mensaje de auxilio 📄  
+
+Se recorren los mensajes interceptados, eliminando los que vengan vacíos o nulos, luego se realiza una iteración por cada mensaje para armar una lista con los palabras de los mensajes interceptados por cada satélite.   
  
 ## Implementación de la solución :bookmark_tabs:
 
