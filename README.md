@@ -28,7 +28,8 @@ Se recorren los mensajes interceptados, eliminando los que vengan vacíos o nulo
  
 ## Implementación de la solución :bookmark_tabs:
 
-Para la creación del proyecto `fuegoQuasar` se usó el generador [Sprint Initializr](https://start.spring.io/) con la versión 2.5.3 de Spring Boot que es un framework que facilita la creación y desarrollo de Servicios y Micro servicios, Java 11 y adicionalmente para generar la documentación se hizo uso de las anotaciones [Swagger](https://swagger.io/). 
+Para la creación del proyecto `fuegoQuasar` se usó como lenguaje de programación Java 11, adicionalmente se usó Spring Boot el cual es un framework que facilita la creación y desarrollo de Servicios y Microservicios.
+Para generar la documentación se usó [Swagger](https://swagger.io/). 
 
 ### Operaciones
 
