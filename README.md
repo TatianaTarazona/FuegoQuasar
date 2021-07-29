@@ -16,45 +16,46 @@ Fuego de Quasar es un API que soluciona el siguiente problema:
   
 ## Planteamiento de la solución :memo:  
   
-### 1. Obtener la posición del emisor por Trilateración 🚀  
+	### 1. Obtener la posición del emisor por Trilateración 🚀  
+	  
+	Se implementó la librería _Trilateration_ que resuelve un problema de trilateración espacial n-D utilizando un optimizador de mínimos cuadrados no lineal, la documentación de la librería es:   
+	  
+	> https://github.com/lemmingapex/Trilateration  
+	  
+	### 2. Obtener el contenido del mensaje de auxilio 📄  
   
-Se implementó la librería _Trilateration_ que resuelve un problema de trilateración espacial n-D utilizando un optimizador de mínimos cuadrados no lineal, la documentación de la librería es:   
-  
-> https://github.com/lemmingapex/Trilateration  
-  
-### 2. Obtener el contenido del mensaje de auxilio 📄  
-  
-Se recorren los mensajes interceptados, eliminando los que vengan vacíos o nulos, luego se realiza una iteración por cada mensaje para armar una lista con los palabras de los mensajes interceptados por cada satélite.   
+	Se recorren los mensajes interceptados, eliminando los que vengan vacíos o nulos, luego se realiza una iteración por cada mensaje para armar una lista con los palabras de los mensajes interceptados por cada satélite.   
  
- ## Implementación de la solución :bookmark_tabs:
+## Implementación de la solución :bookmark_tabs:
 
 Para la creación del proyecto `fuegoQuasar` se usó el generador [Sprint Initializr](https://start.spring.io/) con la versión 2.5.3 de Spring Boot que es un framework que facilita la creación y desarrollo de Servicios y Micro servicios, Java 11 y adicionalmente para generar la documentación se hizo uso de las anotaciones [Swagger](https://swagger.io/). 
 
 ### Operaciones
 
 **POST:**
-*  **`/topsecret`** 
+*  **`/topsecret`**  
 Procesa la información interceptada por los satélites y retorna la posición y mensaje enviado por la nave.
 	##### Entrada:
 	```JSON
-	{"satelliteList":[
-		{
-			"name": "string",
-			 "distance": 0,  
-			 "message": ["string"]
-	    },
-	    {
-		    "name": "string",
-		    "distance": 0,
-		    "message": ["string"]
-		},
-		{
-			"name": "string",
-			"distance": 0,
-			"message": ["string"]
-		}
-	  	  ]
-	  	}
+	{
+		"satelliteList":[
+			{
+				"name": "string",
+				 "distance": 0,  
+				 "message": ["string"]
+			},
+			{
+				"name": "string",
+				"distance": 0,
+				"message": ["string"]
+			},
+			{
+				"name": "string",
+				"distance": 0,
+				"message": ["string"]
+			}
+	  	]
+	}
 	``` 
 
 		
@@ -81,7 +82,7 @@ Procesa la información interceptada por los satélites y retorna la posición y
 	* Si el nombre de alguno de los satélites que reportan no coincide con los satélites que se encuentran actualmente en servicio.
 	* Si no es posible obtener la posición y/o mensaje de auxilio a partir del reporte de los satélites.
 		
-* **`topsecret_split/{satellite_name}`**
+* **`topsecret_split/{satellite_name}`**  
 Permite recibir el reporte de cada uno de los satélites de manera separada y los almacena.
 	
 	`{satellite_name}` : debe ser el nombre de alguno de los satélites que se encuentran en servicio.
@@ -90,8 +91,8 @@ Permite recibir el reporte de cada uno de los satélites de manera separada y lo
 	 http://[ip_server]/topsecret_split/KENOBI
 	```JSON
 	{
-	"distance": 0,  
-	"message": ["string"]
+		"distance": 0,  
+		"message": ["string"]
 	}
 	```
 	> *Nota: Si se envía más de un reporte por satélite, solo se guardará la información del ultimo reporte* 
@@ -105,7 +106,7 @@ Permite recibir el reporte de cada uno de los satélites de manera separada y lo
 	
 	   
 **GET:**
-* **`/topsecret_split`**
+* **`/topsecret_split`**  
 Procesa la información de los reportes almacenados de cada satélite y retorna la posición y mensaje enviado por la nave.
 	#### Salida:
 	
@@ -178,22 +179,23 @@ mvn test
 	* http://appfuegoquasar-env.eba-vrteugxy.us-east-1.elasticbeanstalk.com/topsecret
 	##### Ejemplo entrada:
 	```JSON
-	{"satelliteList":[
-		{
-			"name": "KENOBI",
-			"distance": 100.1,  
-			"message": ["este", "", "", "mensaje", ""]
-		 },
-		 {
-			"name": "SKYWALKER",
-			"distance": 100.1,
-			"message": ["este", "", "", "mensaje", ""]
-		 },
-		 {
-			"name": "SATO",
-			"distance": 100.1,
-			"message": ["este", "", "", "mensaje", ""]
-		 }
+	{
+		"satelliteList":[
+			{
+				"name": "KENOBI",
+				"distance": 100.1,  
+				"message": ["este", "", "", "mensaje", ""]
+			 },
+			 {
+				"name": "SKYWALKER",
+				"distance": 100.1,
+				"message": ["este", "", "", "mensaje", ""]
+			 },
+			 {
+				"name": "SATO",
+				"distance": 100.1,
+				"message": ["este", "", "", "mensaje", ""]
+			 }
     	]
     }
 	``` 
